@@ -1,0 +1,13 @@
+/*
+Error procedure
+*/
+
+DROP PROCEDURE IF EXISTS error;
+
+DELIMITER $$
+CREATE PROCEDURE error(IN erro VARCHAR(255))
+  BEGIN
+  SIGNAL SQLSTATE '45000'	SET message_text = erro;
+END $$
+
+DELIMITER ;
